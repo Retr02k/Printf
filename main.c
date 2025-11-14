@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 17:12:04 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/11/14 19:09:40 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/11/14 19:14:53 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/11/14 19:41:56 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PRINTF_H
-# define PRINTF_H
-# include "libft/libft.h"
-# include <stdarg.h>
+#include "printf.h"
 
-int	ft_printf(const char *s, ...);
-int ft_printf_rules(const char flag, va_list arg);
-int	putnbr_base(unsigned long nb, char *base);
-int	putchar_warped(int c);
-int putstr_warped(char *str);
-int	count_digits(int n);
-int	putnbr_warped(int n);
-int	print_pointer(void *ptr);
+int main()
+{
+	char	c = 'a';
+	char 	s[] = "Hello World!";
+	int		d = 23;
+	int		i = 456621;
+	char	*ptr = &c;
 
-
-
-
-
-#endif
+	ft_printf("%c\n", c);
+	ft_printf("%s\n", s);
+	ft_printf("%d\n", d);
+	ft_printf("%i\n", i);
+	ft_printf("%u\n", i);
+	ft_printf("%x\n", i);
+	ft_printf("%p\n", ptr);
+	ft_printf("%%\n");
+}

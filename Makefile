@@ -25,6 +25,7 @@ clean:
 
 fclean: clean
 	rm -fr $(NAME)
+	rm -fr a.out
 	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
