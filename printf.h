@@ -6,26 +6,26 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 17:12:04 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/11/14 19:09:40 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/11/15 20:12:53 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef	PRINTF_H
 # define PRINTF_H
-# include "libft/libft.h"
 # include <stdarg.h>
+# include <unistd.h>
+# include <stdio.h>
+
+# define	DEC		"0123456789"
+# define	HEX		"0123456789abcdef"
+# define HEX_CAP "0123456789ABCEDF"
+
+typedef enum e_type {
+	POINTER,
+	NB,
+	STR,
+} t_type;
 
 int	ft_printf(const char *s, ...);
-int ft_printf_rules(const char flag, va_list arg);
-int	putnbr_base(unsigned long nb, char *base);
-int	putchar_warped(int c);
-int putstr_warped(char *str);
-int	count_digits(int n);
-int	putnbr_warped(int n);
-int	print_pointer(void *ptr);
-
-
-
-
 
 #endif

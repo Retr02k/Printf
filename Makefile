@@ -1,19 +1,13 @@
 NAME = libftprintf.a
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -I$(LIBFT_DIR)
+CFLAGS = -Wall -Werror -Wextra
 SRCS = ft_printf.c helpers.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(LIBFT):
-	make -C $(LIBFT_DIR)
-
-$(NAME): $(LIBFT) $(OBJS)
-	cp $(LIBFT) $(NAME)
+$(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
@@ -21,12 +15,9 @@ $(NAME): $(LIBFT) $(OBJS)
 
 clean:
 	rm -fr $(OBJS)
-	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -fr $(NAME)
-	rm -fr a.out
-	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

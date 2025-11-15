@@ -6,26 +6,24 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 18:51:58 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/11/14 19:13:48 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/11/15 20:11:44 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	putnbr_base(unsigned long nb, char *base)
+static int	putnbr_base(unsigned long nb, char *base, int base_len)
 {
 	char	buffer[20];
 	int		i;
 	int		count;
-	int		base_len;
 	
 	if (nb == 0)
 	{
-		ft_putchar_fd('0', 1);
+		write(1, "0", 1);
 		return (1);
 	}
 	i = 0;
-	base_len = ft_strlen(base);
 	while (nb > 0)
 	{
 		buffer[i++] = base[nb % base_len];
@@ -33,62 +31,58 @@ int	putnbr_base(unsigned long nb, char *base)
 	}
 	count = i;
 	while (--i >= 0)
-		ft_putchar_fd(buffer[i], 1);
+		write(1 ,&buffer[i], 1);
 	return (count);
 }
 
-int	putchar_warped(int c)
-{
-	ft_putchar_fd(c, 1);
-	return (1);
-}
-
-int putstr_warped(char *str)
-{
-	if (!str)
-		str = "(null)";
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-}
-
-int	count_digits(int n)
-{
-	int count;
-
-	if (n == 0)
-		return (1);
-	count = 0;
-	if (n < 0)
-	{
-		count++;
-		n *= -1;
-	}
-	while (n > 0)
-	{
-		count++;
-		n /= 10;
-	}
-	return (count);
-}
-
-int	putnbr_warped(int n)
-{
-	ft_putnbr_fd(n, 1);
-	return (count_digits(n));
-}
-
-int	print_pointer(void *ptr)
+static int	print_pointer_number(void *ptr, int nb, int type)
 {
 	unsigned long	addr;
-	int				count;
 
-	if (!ptr)
+	if (type == NB)
 	{
-		ft_putstr_fd("(nil)", 1);
-		return (5);
+		if (nb < 0)
+		{
+			write(1, "-", 1);
+			nb *= -1;
+			return (1 + putnbr_base(nb, DEC, 10));
+		}
+		return (putnbr_base(nb, DEC, 10));
 	}
-	ft_putstr_fd("0x", 1);
+	else if (type == STR)
+	{
+		if (!ptr)
+			return write(1, "(null)", 6);
+		while (((char *)ptr)[++nb])
+			write(1, ((char *)ptr) + nb, 1);
+		return (nb);
+	}
+	else if (!ptr)
+		return (write(1, "(nil)", 5));
 	addr = (unsigned long)ptr;
-	count = putnbr_base(addr, "0123456789abcdef");
-	return(2 + count);
+	return(write(1, "0x", 2) + putnbr_base(addr, HEX, 16));
+}
+
+int ft_printf_rules(const char flag, va_list arg, char c)
+{
+	if (flag == 'c')
+	{	
+		c = va_arg(arg, int);
+		return (write(1, &c, 1));
+	}
+	if (flag == 's')
+		return (print_pointer_number(va_arg(arg, char *), -1, STR));
+	if (flag == 'p')
+		return (print_pointer_number(va_arg(arg, void *), 0, POINTER));
+	if (flag == 'd' || flag == 'i')
+		return (print_pointer_number(0, va_arg(arg, int), NB));
+	if (flag == 'u')
+		return (putnbr_base(va_arg(arg, unsigned int), DEC, 10));
+	if (flag == 'x')
+		return (putnbr_base(va_arg(arg, unsigned int), HEX, 16));
+	if (flag == 'X')
+		return (putnbr_base(va_arg(arg, unsigned int), HEX_CAP, 16));
+	if (flag == '%')
+		return (write(1, "%", 1));
+	return (0);
 }
