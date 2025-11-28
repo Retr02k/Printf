@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 18:51:58 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/11/17 11:34:51 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:35:55 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,5 @@ int	ft_printf_rules(const char flag, va_list arg, char c)
 		return (putnbr_base (va_arg(arg, unsigned int), HEX_CAP, 16));
 	if (flag == '%')
 		return (write(1, "%", 1));
-	return (0);
+	return (write(1, &flag, 1));
 }
