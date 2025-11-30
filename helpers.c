@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 18:51:58 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/11/19 17:35:55 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:03:17 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	print_pointer_number(void *ptr, int nb, int type)
 		{
 			write (1, "-", 1);
 			nb *= -1;
-			return (1 + putnbr_base(nb, DEC, 10));
+			return (1 + putnbr_base(nb & BIT_MASK, DEC, 10));
 		}
 		return (putnbr_base(nb, DEC, 10));
 	}
@@ -63,8 +63,10 @@ static int	print_pointer_number(void *ptr, int nb, int type)
 	return (write (1, "0x", 2) + putnbr_base(addr, HEX, 16));
 }
 
-int	ft_printf_rules(const char flag, va_list arg, char c)
+int	ft_printf_rules(const char flag, va_list arg)
 {
+	char	c;
+
 	if (flag == 'c')
 	{
 		c = va_arg(arg, int);

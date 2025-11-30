@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 17:12:04 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/11/19 17:36:54 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:03:01 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define DEC "0123456789"
 # define HEX "0123456789abcdef"
 # define HEX_CAP "0123456789ABCEDF"
+# define BIT_MASK 0x00000000ffffffff
 
 typedef enum e_type
 {
