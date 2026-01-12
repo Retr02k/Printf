@@ -12,14 +12,16 @@
 
 #include "push_swap.h"
 
-int main (int	ac, char	*av)
+int main (int	ac, char	**av)
 {
 	int i;
+	int gabriel;
 
-	i = 0;
-	while (ac != 0)
+	i = 1;
+	while (i < ac)
 	{
-		ft_atoi(av[i]);
+		gabriel = ft_atoi(av[i]);
+		ft_printf("%i\n", gabriel);
 		i++;
 	}
 	return (0);
