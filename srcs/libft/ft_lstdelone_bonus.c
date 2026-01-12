@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                           "         +:+ +:+         +:+     */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 18:25:43 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/12 18:25:43 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/11/03 16:26:27 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/11/12 16:54:07 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main (int	ac, char	*av)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int i;
-
-	i = 0;
-	while (ac != 0)
-	{
-		ft_atoi(av[i]);
-		i++;
-	}
-	return (0);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }

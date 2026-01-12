@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                           "         +:+ +:+         +:+     */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 18:25:43 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/12 18:25:43 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/10/21 16:38:29 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/11/17 18:31:45 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main (int	ac, char	*av)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int i;
+	size_t			i;
+	unsigned char	*p;
 
+	p = (unsigned char *)s;
 	i = 0;
-	while (ac != 0)
+	while (i < n)
 	{
-		ft_atoi(av[i]);
+		p[i] = (unsigned char) c;
 		i++;
 	}
-	return (0);
+	return (s);
 }

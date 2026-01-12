@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                           "         +:+ +:+         +:+     */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 18:25:43 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/12 18:25:43 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/09/14 20:22:32 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/09/14 19:48:32 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main (int	ac, char	*av)
+size_t	ft_strlen(const	char	*str)
 {
-	int i;
+	size_t	counter;
 
-	i = 0;
-	while (ac != 0)
-	{
-		ft_atoi(av[i]);
-		i++;
-	}
-	return (0);
+	counter = 0;
+	while (str[counter])
+		counter++;
+	return (counter);
 }

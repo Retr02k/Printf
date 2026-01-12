@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                           "         +:+ +:+         +:+     */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 18:25:43 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/12 18:25:43 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/10/31 19:08:30 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/11/12 16:54:31 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main (int	ac, char	*av)
+t_list	*ft_lstnew(void *content)
 {
-	int i;
+	t_list	*new_node;
 
-	i = 0;
-	while (ac != 0)
-	{
-		ft_atoi(av[i]);
-		i++;
-	}
-	return (0);
+	new_node = malloc(sizeof(t_list));
+	if (!new_node)
+		return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }

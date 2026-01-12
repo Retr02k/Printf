@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                           "         +:+ +:+         +:+     */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 18:25:43 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/12 18:25:43 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/10/20 19:53:46 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/11/12 16:55:10 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main (int	ac, char	*av)
+char	*ft_strchr(const char *s, int c)
 {
-	int i;
-
-	i = 0;
-	while (ac != 0)
+	while (*s)
 	{
-		ft_atoi(av[i]);
-		i++;
+		if (*s == (char) c)
+			return ((char *)s);
+		s++;
 	}
+	if ((char) c == '\0')
+		return ((char *)s);
 	return (0);
 }

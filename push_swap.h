@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                           "         +:+ +:+         +:+     */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 18:25:43 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/12 18:25:43 by psilva-p         ###   ########.fr       */
+/*   Created: 2026/01/12 18:26:22 by psilva-p          #+#    #+#             */
+/*   Updated: 2026/01/12 18:39:51 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+#define PUSH_SWAP_H
 
-int main (int	ac, char	*av)
-{
-	int i;
+#include "srcs/libft/libft.h"
+#include "srcs/ft_printf/ft_printf.h"
 
-	i = 0;
-	while (ac != 0)
-	{
-		ft_atoi(av[i]);
-		i++;
-	}
-	return (0);
-}
+#endif

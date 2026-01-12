@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                           "         +:+ +:+         +:+     */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 18:25:43 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/12 18:25:43 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/10/21 16:40:36 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/11/12 16:53:29 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main (int	ac, char	*av)
+void	ft_bzero(void *s, size_t n)
 {
-	int i;
+	unsigned char	*p;
+	size_t			i;
 
+	p = (unsigned char *)s;
 	i = 0;
-	while (ac != 0)
+	while (i < n)
 	{
-		ft_atoi(av[i]);
+		p[i] = 0;
 		i++;
 	}
-	return (0);
 }

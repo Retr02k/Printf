@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                           "         +:+ +:+         +:+     */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 18:25:43 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/12 18:25:43 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/11/04 15:34:10 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/11/12 16:54:16 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main (int	ac, char	*av)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int i;
+	t_list	*temp;
 
-	i = 0;
-	while (ac != 0)
+	if (!lst || !f)
+		return ;
+	temp = lst;
+	while (temp)
 	{
-		ft_atoi(av[i]);
-		i++;
+		f(temp->content);
+		temp = temp->next;
 	}
-	return (0);
 }

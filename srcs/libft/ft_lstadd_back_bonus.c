@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                           "         +:+ +:+         +:+     */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 18:25:43 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/12 18:25:43 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/11/01 09:39:26 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/11/12 16:53:48 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main (int	ac, char	*av)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int i;
+	t_list	*last;
 
-	i = 0;
-	while (ac != 0)
+	if (!lst || !new)
+		return ;
+	new->next = NULL;
+	if (!*lst)
 	{
-		ft_atoi(av[i]);
-		i++;
+		*lst = new;
+		return ;
 	}
-	return (0);
+	last = ft_lstlast(*lst);
+	last->next = new;
 }
