@@ -6,11 +6,11 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 18:51:58 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/12/05 16:07:03 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/11/17 11:34:51 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 
 static int	putnbr_base(unsigned long nb, char *base, int base_len)
 {
@@ -45,7 +45,7 @@ static int	print_pointer_number(void *ptr, int nb, int type)
 		{
 			write (1, "-", 1);
 			nb *= -1;
-			return (1 + putnbr_base(nb & BIT_MASK, DEC, 10));
+			return (1 + putnbr_base(nb, DEC, 10));
 		}
 		return (putnbr_base(nb, DEC, 10));
 	}
@@ -63,10 +63,8 @@ static int	print_pointer_number(void *ptr, int nb, int type)
 	return (write (1, "0x", 2) + putnbr_base(addr, HEX, 16));
 }
 
-int	ft_printf_rules(const char flag, va_list arg)
+int	ft_printf_rules(const char flag, va_list arg, char c)
 {
-	char	c;
-
 	if (flag == 'c')
 	{
 		c = va_arg(arg, int);
@@ -86,5 +84,5 @@ int	ft_printf_rules(const char flag, va_list arg)
 		return (putnbr_base (va_arg(arg, unsigned int), HEX_CAP, 16));
 	if (flag == '%')
 		return (write(1, "%", 1));
-	return (write(1, &flag, 1));
+	return (0);
 }

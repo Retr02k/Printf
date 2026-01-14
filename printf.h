@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 18:25:25 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/11/12 16:55:13 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/11/12 17:12:04 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/11/17 11:31:48 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PRINTF_H
+# define PRINTF_H
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdio.h>
 
-char	*ft_strdup(const char	*s)
+# define DEC "0123456789"
+# define HEX "0123456789abcdef"
+# define HEX_CAP "0123456789ABCEDF"
+
+typedef enum e_type
 {
-	char	*str;
-	size_t	len;
-	size_t	i;
+	POINTER,
+	NB,
+	STR,
+}	t_type;
 
-	len = ft_strlen(s);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		str[i] = s[i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
-}
+int	ft_printf(const char *s, ...);
+
+#endif
